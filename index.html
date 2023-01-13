@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     
+     
+     <style>
+        body{
+            background:#FAD3E7
+        }
+        .tabs{
+            background-color: aqua;
+        }
+        .button{
+            padding:1rem 0;
+            border:none;
+            font-size:1rem;
+            letter-spacing: 0.25rem;
+            width: 1000px;
+            cursor:pointer;
+        }
+        .button:hover{
+            background-color:red;
+        }
+        .button:nth-child(1){
+                border-top-left-radius: .5rem;
+        }
+        .button:nth-child(3){
+                border-top-right-radius:.5rem;
+        }
+        .btn-container{
+            display:flex;
+            justify-content:space-between
+        }
+        .tabs-content{
+            padding:2rem 1.5rem;
+        }
+        .content{
+            display:none
+        }
+        .content.live{
+            display:block
+        }
+        .button.live{
+            background-color:red
+        }
+     </style>
+
+</head>
+<body>
+
+    <div class=tabs>
+        <div class="btn-container">
+            <button class="button live" data-id="step1">step1</button>
+            <button class="button" data-id="step2">step2</button>
+            <button class="button" data-id="step3">step3</button>
+        </div>
+      
+        <div class="tabs-content">
+            <div class="content live" id="step1">
+                <h3>step1</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam praesentium culpa libero impedit molestiae sit iure eligendi quam cumque pariatur sed debitis, mollitia tenetur vero tempore laborum dolore! Illo, amet?
+                Enim blanditiis corrupti sapiente libero expedita maxime sint deleniti temporibus similique dolores excepturi maiores beatae, nam officiis doloremque quibusdam veniam odit culpa magnam voluptas! Quidem molestiae ea repellat! Aspernatur, quaerat!</p>
+            </div>
+            <div class="content" id="step2">
+                <h3>step2</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam praesentium culpa libero impedit molestiae sit iure eligendi quam cumque pariatur sed debitis, mollitia tenetur vero tempore laborum dolore! Illo, amet?
+                Enim blanditiis corrupti sapiente libero expedita maxime sint deleniti temporibus similique dolores excepturi maiores beatae, nam officiis doloremque quibusdam veniam odit culpa magnam voluptas! Quidem molestiae ea repellat! Aspernatur, quaerat!</p>
+            </div>
+            <div class="content" id="step3">
+                <h3>step3</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam praesentium culpa libero impedit molestiae sit iure eligendi quam cumque pariatur sed debitis, mollitia tenetur vero tempore laborum dolore! Illo, amet?
+                Enim blanditiis corrupti sapiente libero expedita maxime sint deleniti temporibus similique dolores excepturi maiores beatae, nam officiis doloremque quibusdam veniam odit culpa magnam voluptas! Quidem molestiae ea repellat! Aspernatur, quaerat!</p>
+            </div>
+        </div>
+
+    </div>
+   
+    <!-- javascript -->
+
+    <script>
+        const tabs = document.querySelector(".tabs");
+        const btns = document.querySelectorAll('.button')
+        const articles = document.querySelectorAll(".content")
+        tabs.addEventListener("click",(event)=>{
+            const id = event.target.dataset.id
+            if(id){
+                btns.forEach((btn)=>{
+                    btn.classList.remove("live")
+                })
+                event.target.classList.add("live");
+                
+                articles.forEach((article)=>{
+                    article.classList.remove("live")
+                });
+                const element = document.getElementById(id);
+                 element.classList.add("live")
+            }
+         
+
+        });
+           
+       
+    </script>
+
+</body>
+</html>
